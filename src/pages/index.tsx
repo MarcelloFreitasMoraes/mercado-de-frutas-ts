@@ -9,15 +9,19 @@ import { API } from '@/config/api'
 export default function Home({ isLogged }: { isLogged: boolean }) {
     const [search, setSearch] = useState<string>('')
     const [result, setResult] = useState<[string, unknown][]>()
-
+  
     useEffect(() => {
         axios.get(API).then((res) => {
             const filterProducts = Object.entries(res?.data)?.filter((item) => {
-                return item !== null
-            })
+                if (!item) return false;
+                const [key] = item;
+                const lowerCaseKey = key.toLowerCase();
+                const lowerCaseSearch = search.toLowerCase();
+                return lowerCaseKey.includes(lowerCaseSearch);
+            });
             setResult(filterProducts)
         })
-    }, [])
+    }, [search])
 
     return (
         <>

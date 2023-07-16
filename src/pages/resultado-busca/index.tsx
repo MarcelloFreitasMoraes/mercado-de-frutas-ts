@@ -12,7 +12,7 @@ import { DataProps } from '@/global/@types/data'
 export default function Home({ isLogged }: { isLogged: boolean }) {
     const [search, setSearch] = useState<string>('')
     const [data, setData] = useState<DataProps[] | any[]>([])
-    const [result, setResult] = useState([])
+    const [result, setResult] = useState<DataProps[]>([])
 
     const router = useRouter()
     const { fruta } = router.query
@@ -29,11 +29,10 @@ export default function Home({ isLogged }: { isLogged: boolean }) {
     useEffect(() => {
         if (fruta) {
             const filtered = data?.[0]?.[1]?.filter(
-                (item: { name: (string | string[])[] }) => {
-                    if (item?.name?.indexOf(fruta) !== -1) {
-                        return true
-                    }
-                    return false
+                (item: { name: string }) => {
+                    const lowerCaseName = item?.name?.toLowerCase();
+                    const lowerCaseSearch = (fruta as string)?.toLowerCase();
+                    return lowerCaseName?.includes(lowerCaseSearch);
                 }
             )
             setResult(filtered)

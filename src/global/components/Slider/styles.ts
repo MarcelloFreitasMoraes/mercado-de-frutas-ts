@@ -11,7 +11,7 @@ export const Img = styled.img`
 `
 export const ArrowNext = styled.button`
     cursor: pointer;
-    color: ${props => props.theme.primary};
+    color: ${(props) => props.theme.primary};
     position: absolute;
     background-color: transparent;
     font-size: 2em;
@@ -19,12 +19,12 @@ export const ArrowNext = styled.button`
     right: -5%;
 
     @media screen and (max-width: 768px) {
-        right:0;
+        right: 0;
     }
 `
 export const ArrowPrev = styled.button`
     cursor: pointer;
-    color: ${props => props.theme.primary};
+    color: ${(props) => props.theme.primary};
     position: absolute;
     font-size: 2em;
     background-color: transparent;
@@ -32,7 +32,7 @@ export const ArrowPrev = styled.button`
     left: -5%;
 
     @media screen and (max-width: 768px) {
-        left:0;
+        left: 0;
         z-index: 999;
     }
 `

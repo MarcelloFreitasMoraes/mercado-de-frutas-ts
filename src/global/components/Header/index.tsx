@@ -5,8 +5,11 @@ import { FaUserCircle } from "react-icons/fa";
 import { Data } from "./data";
 import Modal from "../Modal";
 import { Container } from "@/styles/Global";
+import LOGO from '../../../../public/logo.png'
+import Image from "next/image";
+import Link from "next/link";
 
-export default function Header({isLogged }) {
+export default function Header({isLogged }:any) {
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -18,9 +21,9 @@ export default function Header({isLogged }) {
       <Container>
         <S.Grid>
           <S.Brand>
-            <a href="/">
-              <img src="./logo.png" alt="Logo" />
-            </a>
+            <Link  href="/">
+              <Image src={LOGO} alt="Logo" width={200} height={80} />
+            </Link>
           </S.Brand>
 
           <S.Nav>
@@ -36,16 +39,15 @@ export default function Header({isLogged }) {
           </S.Nav>
 
           <S.Icons>
-            <a href="/carrinho">
+            <Link href="/carrinho">
               <BiCart />
-            </a>
-
+            </Link>
             <button onClick={openModal}>
               <FaUserCircle />
             </button>
           </S.Icons>
         </S.Grid>
-        <Modal showModal={showModal} setShowModal={setShowModal} isLogged={isLogged} />
+        <Modal showModal={showModal} isLogged={isLogged} />
       </Container>
     </S.Content>
   );

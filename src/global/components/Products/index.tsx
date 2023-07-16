@@ -1,11 +1,13 @@
-import { useState } from 'react'
+import { JSXElementConstructor, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, useState } from 'react'
 import * as S from './styles'
 import Checked from '../Checked'
 import axios from 'axios'
 import Button from '../Button'
 import { Container } from '@/styles/Global'
+import { ProdutoctsProps } from './types'
+import Image from 'next/image'
 
-export default function Products({ result, isLogged }) {
+export default function Products({ result, isLogged }:ProdutoctsProps) {    
     const [check, setCheck] = useState(false)
 
     const openChecked = () => {
@@ -14,7 +16,7 @@ export default function Products({ result, isLogged }) {
 
     const url = "https://mercado-de-fruta2-default-rtdb.firebaseio.com/frutas/checkout.json"
 
-    const addCheckout = (data) =>{
+    const addCheckout = (data: { name: any; image: string | undefined; description: string | number | boolean | ReactPortal | PromiseLikeOfReactNode | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined; price: string | number | boolean | ReactPortal | PromiseLikeOfReactNode | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined }) =>{
         axios.post(url, data).then((res) => {
             openChecked()
         })
@@ -24,7 +26,7 @@ export default function Products({ result, isLogged }) {
         <S.Content>
             <Container>
                 <S.Grid>
-                    {result?.map((item) => {
+                    {result?.map((item: { name: boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | PromiseLikeOfReactNode | Key | null | undefined; image: string | undefined; description: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; price: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined }) => {
                         return (
                             <S.Box key={item.name}>
                                 <img src={item.image} />

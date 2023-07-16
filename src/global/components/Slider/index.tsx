@@ -1,32 +1,27 @@
-import Slider from "react-slick";
+import Slider from 'react-slick'
 import { Images } from './data'
 import * as S from './styles'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import { IoIosArrowDroprightCircle } from 'react-icons/io'
 import { IoIosArrowDropleftCircle } from 'react-icons/io'
-import { Container } from "@/styles/Global";
+import { Container } from '@/styles/Global'
 
-function NextArrow (props) {
-    const { onClick } = props;
+function NextArrow(props: { onClick?: React.MouseEventHandler<HTMLElement> }) {
+    const { onClick } = props
 
-    return(
-        <S.ArrowNext
-            onClick={onClick}
-        >
+    return (
+        <S.ArrowNext onClick={onClick}>
             <IoIosArrowDroprightCircle />
         </S.ArrowNext>
     )
 }
 
+function PrevArrow(props: { onClick?: React.MouseEventHandler<HTMLElement> }) {
+    const { onClick } = props
 
-function PrevArrow (props) {
-    const { onClick } = props;
-
-    return(
-        <S.ArrowPrev
-            onClick={onClick}
-        >
+    return (
+        <S.ArrowPrev onClick={onClick}>
             <IoIosArrowDropleftCircle />
         </S.ArrowPrev>
     )
@@ -41,10 +36,10 @@ export default function SliderComponent() {
         autoplay: true,
         speed: 2000,
         autoplaySpeed: 5000,
-        cssEase: "linear",
+        cssEase: 'linear',
         nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />
-    };
+        prevArrow: <PrevArrow />,
+    }
 
     return (
         <S.Content>
@@ -52,8 +47,12 @@ export default function SliderComponent() {
                 <div>
                     <Slider {...settings}>
                         {Images.map((item, index) => {
-                            return(
-                                <S.Img src={item.url} alt={item.alt} key={index}/>
+                            return (
+                                <S.Img
+                                    src={item.url}
+                                    alt={item.alt}
+                                    key={index}
+                                />
                             )
                         })}
                     </Slider>

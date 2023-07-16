@@ -1,11 +1,17 @@
 import { Container } from "@/styles/Global";
 import * as S from "./styles";
 import { FaSearch } from 'react-icons/fa'
+import { SearchProps } from "./types";
 
-export default function Search({ setSearch, search }) {
+export default function Search({ setSearch, search }: SearchProps) {
   const resultSearch = () => {
     window.location.href = `/resultado-busca?fruta=${search}`
   }
+
+  const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    setSearch(e.currentTarget.value);
+  };
+
   return (
     <S.Content>
       <Container>
@@ -14,7 +20,7 @@ export default function Search({ setSearch, search }) {
             <input
               type="text"
               placeholder="Pesquisa sua fruta preferida..."
-              onKeyUp={(e) => setSearch(e.target.value)}
+              onKeyUp={handleKeyUp}
             />
             <S.Icon onClick={(e) =>{ 
               e.preventDefault()

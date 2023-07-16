@@ -1,5 +1,5 @@
 export interface ButtonProps {
     label: string
-    onClick: () => void
-    disabled?:boolean
+    onClick?: React.MouseEventHandler<HTMLElement>
+    disabled?: boolean
 }

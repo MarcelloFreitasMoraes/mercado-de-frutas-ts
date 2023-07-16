@@ -1,61 +1,66 @@
 import Head from 'next/head'
-import axios from "axios";
+import axios from 'axios'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
-import { API } from '../../../config/api';
-import Search from '@/global/components/Search';
-import { product_card } from '@/global/components/Products/data';
-import { Container } from '@/styles/Global';
-import Products from '@/global/components/Products';
+import { API } from '../../../config/api'
+import Search from '@/global/components/Search'
+import { Container } from '@/styles/Global'
+import Products from '@/global/components/Products'
 
-export default function Home({isLogged}) {
-  const [search, setSearch] = useState()
-  const [data, setData] = useState< [string, unknown][]>()
-  const [result, setResult] = useState();
+export default function Home({ isLogged }: { isLogged: boolean }) {
+    const [search, setSearch] = useState<string>('')
+    const [data, setData] = useState<any[]>([])
+    const [result, setResult] = useState<any[]>([])
 
-  const router = useRouter()
-  const { fruta } = router.query
+    const router = useRouter()
+    const { fruta } = router.query
 
-  useEffect(() => {
-    axios.get(API).then((res) => {
+    useEffect(() => {
+        axios.get(API).then((res) => {
+            const filterProducts: any[] = Object.entries(res.data).filter(
+                (n) => {
+                    return n !== null
+                }
+            )
+            setData(filterProducts)
+        })
+    }, [])
 
-      const filterProducts = (Object.entries(res.data))?.filter(n =>{
-        return n !== null 
-      })
-      setData(filterProducts);
-    });
-  }, []);
+    useEffect(() => {
+        if (fruta) {
+            const filtered = data?.[0]?.[1]?.filter(
+                (item: { name: (string | string[])[] }) => {
+                    if (item?.name?.indexOf(fruta) !== -1) {
+                        return true
+                    }
+                    return false
+                }
+            )
+            setResult(filtered)
+        }
+    }, [data, fruta])
 
+    const Title = styled.h1``
 
-  useEffect(() => {
-    const filtered = data?.[0]?.[1]?.filter((item: { name: (string | string[] | undefined)[]; }) => {
-    
-      if (item?.name?.indexOf(fruta) !== -1) {      
-        return true; 
-      }
-      return false;
-    });
-    setResult(filtered);
-    
-  }, [data]);  
+    return (
+        <>
+            <Head>
+                <title>Mercado Fruta | Página Inicial</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
 
-  const Title = styled.h1``
+            <Search setSearch={setSearch} search={search} />
 
-  return (
-    <>
-      <Head>
-        <title>Mercado Fruta | Página Inicial</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+            <Container>
+                {result?.length > 0 ? (
+                    <Title>Resultados para {fruta}</Title>
+                ) : (
+                    <p>Não há resultados</p>
+                )}
+            </Container>
 
-      <Search data={product_card} setSearch={setSearch} search={search} />
-
-      <Container>
-       {result?.length > 0 ? (<Title>Resultados para {fruta !== -1}</Title>) : (<>não há reultados</>)} 
-      </Container>
-
-      <Products result={result} isLogged={isLogged} />
-    </>
-  )
+            <Products result={result} isLogged={isLogged} />
+        </>
+    )
 }

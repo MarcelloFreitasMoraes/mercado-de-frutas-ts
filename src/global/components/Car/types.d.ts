@@ -1,9 +1,9 @@
 import { DataProps } from "@/global/@types/data"
 
-export interface CarProps {
+export interface CarProps <T=any>{
     data: Array<[string, FruitData]>;
-    del: any; // Substitua 'any' pelo tipo correto, se possível
-    setDel: React.Dispatch<React.SetStateAction<any>>; // Substitua 'any' pelo tipo correto, se possível
-    fruitsSelected: any;
-    setFruitsSelected: React.Dispatch<React.SetStateAction<any>>;
+    del: T;
+    setDel: React.Dispatch<React.SetStateAction<T>>;
+    fruitsSelected: T;
+    setFruitsSelected: React.Dispatch<React.SetStateAction<T>>;
 }

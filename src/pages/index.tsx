@@ -7,7 +7,7 @@ import Search from '@/global/components/Search';
 import Slider from '@/global/components/Slider';
 import Products from '@/global/components/Products';
 
-export default function Home({isLogged}) {
+export default function Home({ isLogged }: { isLogged: boolean }) {
   const [search, setSearch] = useState()
   const [result, setResult] = useState< [string, unknown][]>()
 

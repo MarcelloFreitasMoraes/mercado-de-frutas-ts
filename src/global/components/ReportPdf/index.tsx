@@ -5,6 +5,8 @@ import {
   Document,
   StyleSheet,
 } from '@react-pdf/renderer';
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode, Key } from 'react';
+import { ReportPdfProps } from './types';
 
 const style = StyleSheet.create({
   page: {
@@ -24,13 +26,13 @@ const style = StyleSheet.create({
   }
 });
 
-const MyPdf = ({ data, total }) => (
+const MyPdf = ({ data, total }:ReportPdfProps) => (
 
   <Document>
     <Page size="A4" style={style.page}>
       <View style={style.box}>
-        <Text style={style.text}>Relatório Confidencial</Text>
-        <Text style={style.text}>Config. de Conta</Text>
+        <Text>Relatório Confidencial</Text>
+        <Text>Config. de Conta</Text>
       </View>
 
       <View style={style.box}>
@@ -44,7 +46,8 @@ const MyPdf = ({ data, total }) => (
 
       <View>
         <Text style={style.title}>Produto</Text>
-        {data?.map((item, index) => {
+        {data?.map((item: { name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; price: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; }, index: Key | null | undefined) => {
+          
           return (
               <View style={style.flex} key={index}>
                 <Text>{item.name}</Text>

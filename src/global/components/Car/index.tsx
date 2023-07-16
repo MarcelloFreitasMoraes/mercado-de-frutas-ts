@@ -1,4 +1,4 @@
-import { JSXElementConstructor, Key, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, useEffect } from "react";
+import { JSXElementConstructor, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, useEffect } from "react";
 import * as S from "./styles";
 import { PDFDownloadLink } from '@react-pdf/renderer/lib/react-pdf.browser.cjs.js';
 import PdfDocument from '../ReportPdf';
@@ -6,12 +6,9 @@ import { FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 import { Container } from "@/styles/Global";
 import { CarProps } from "./types";
+import Image from "next/image";
 
 export default function Car({ data, del, setDel, fruitsSelected, setFruitsSelected }: CarProps) {
-console.log(data,'data');
-console.log(del,'del');
-console.log(fruitsSelected,'fruitsSelected');
-
 
   useEffect(() => {
     if (data) {
@@ -53,11 +50,11 @@ console.log(fruitsSelected,'fruitsSelected');
         <S.Grid>
           <S.Wrapper>
             {data &&
-              data.map((fruit) => {
+              data.map((fruit, index) => {
                 return (
-                  <S.Content key={fruit}>
+                  <S.Content key={index}>
                     <S.Product>
-                      <img src={fruit[1]?.image} alt={fruit[1]?.name} />
+                      <Image src={fruit[1]?.image} alt={fruit[1]?.name} width={250} height={200} />
                     </S.Product>
 
                     <S.Detail>
@@ -129,7 +126,7 @@ console.log(fruitsSelected,'fruitsSelected');
                   document={<PdfDocument data={fruitsSelected} total={total} />}
                   fileName="boleto.pdf"
                 >
-                  {({loading }) =>
+                  {({ loading }: { loading: boolean })=>
                     loading ? "Loading document..." : "Finalizar Compra"
                   }
                 </PDFDownloadLink>

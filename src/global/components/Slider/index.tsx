@@ -33,12 +33,12 @@ function PrevArrow(props: ArrowProps) {
 }
 
 export default function SliderComponent() {
-  const [showArrows, setShowArrows] = useState(true);
+  const [showArrows, setShowArrows] = useState<boolean>(true);
 
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-      setShowArrows(screenWidth > 600);
+      setShowArrows(screenWidth > 767);
     };
 
     window.addEventListener('resize', handleResize);

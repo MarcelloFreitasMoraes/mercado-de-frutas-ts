@@ -1,61 +1,61 @@
-import {
-    JSXElementConstructor,
-    PromiseLikeOfReactNode,
-    ReactElement,
-    ReactNode,
-    ReactPortal,
-    useEffect,
-} from 'react'
+import React, { useEffect } from 'react'
 import * as S from './styles'
 import { PDFDownloadLink } from '@react-pdf/renderer/lib/react-pdf.browser.cjs.js'
 import PdfDocument from '../ReportPdf'
 import { FaTrash } from 'react-icons/fa'
-import axios from 'axios'
 import { Container } from '@/styles/Global'
-import { CarProps } from './types'
+import { CarProps, ErrorMessageProps } from './types'
 import Image from 'next/image'
+import Back from '../Back'
+import Empty from '../../../../public/empty.png'
+import { LoadingComponent } from '../Loading'
 
-export default function Car({
+const ErrorMessage: React.FC<ErrorMessageProps> = () => {
+    return (
+        <S.Error
+            style={{
+                display: 'flex',
+                justifyContent: 'center',
+                padding: '5.1%',
+            }}
+        >
+            <Image src={Empty} alt={'empty'} />
+            <Back />
+        </S.Error>
+    )
+}
+
+const Car: React.FC<CarProps> = ({
     data,
-    del,
-    setDel,
-    fruitsSelected,
     setFruitsSelected,
-}: CarProps) {
+    fruitsSelected,
+    onDelete,
+    isEmpty,
+    loading,
+}) => {
     useEffect(() => {
         if (data) {
-            const newArray = data && data?.map((item: string[]) => item[1])
-            setFruitsSelected(
-                newArray.filter((item: string) => item !== 'lock')
-            )
+            const newArray = data && data?.map((item) => item[1])
+            setFruitsSelected(newArray.filter((item) => item?.id !== 'lock'))
         }
     }, [data])
 
     const prices = fruitsSelected?.map((som: { price: string }) => {
-        return parseFloat(som.price.replace(',', '.'))
+        return parseFloat(som?.price?.replace(',', '.'))
     })
 
     const totalCheckout = prices?.reduce((acumulado: number, x: number) => {
         return acumulado + x
-    })
+    }, 0)
 
     const total = totalCheckout?.toString().replace('.', ',')
 
-    const delet = (id: string) => {
-        axios
-            .delete(
-                `https://mercado-de-fruta2-default-rtdb.firebaseio.com/frutas/checkout/${id}.json`
-            )
-            .then(() => {
-                alert('fruta excluída')
-                setDel(!del)
+    if (isEmpty) {
+        return <ErrorMessage />
+    }
 
-                // Atualize o estado para remover o item excluído da lista
-                setFruitsSelected((prevFruitsSelected: any[]) =>
-                    prevFruitsSelected.filter((fruit) => fruit.id !== id)
-                )
-            })
-            .catch(() => alert('fruta não excluída'))
+    if (loading) {
+        return <LoadingComponent />
     }
 
     return (
@@ -63,45 +63,44 @@ export default function Car({
             <Container>
                 <S.Grid>
                     <S.Wrapper>
-                        {data &&
-                            data.map((fruit, index) => {
-                                return (
-                                    <S.Content key={index}>
-                                        <S.Product>
-                                            <Image
-                                                src={fruit[1]?.image}
-                                                alt={fruit[1]?.name}
-                                                width={250}
-                                                height={200}
-                                            />
-                                        </S.Product>
+                        {data?.map((fruit, index) => {
+                            return (
+                                <S.Content key={index}>
+                                    <S.Product>
+                                        <Image
+                                            src={fruit[1]?.image}
+                                            alt={fruit[1]?.name}
+                                            width={250}
+                                            height={200}
+                                        />
+                                    </S.Product>
 
-                                        <S.Detail>
-                                            <S.Heading>
-                                                <h2>{fruit[1]?.name}</h2>
-                                                <p>{fruit[1]?.description}</p>
-                                            </S.Heading>
+                                    <S.Detail>
+                                        <S.Heading>
+                                            <h2>{fruit[1]?.name}</h2>
+                                            <p>{fruit[1]?.description}</p>
+                                        </S.Heading>
 
-                                            <S.Price>
-                                                <sup>R$</sup>
-                                                <span>{fruit[1]?.price}</span>
-                                            </S.Price>
+                                        <S.Price>
+                                            <sup>R$</sup>
+                                            <span>{fruit[1]?.price}</span>
+                                        </S.Price>
 
-                                            <S.Buttons>
-                                                <span>Quantidade:</span>
-                                                <span>1</span>
-                                                <span
-                                                    onClick={() =>
-                                                        delet(fruit[0])
-                                                    }
-                                                >
-                                                    <FaTrash size={16} />
-                                                </span>
-                                            </S.Buttons>
-                                        </S.Detail>
-                                    </S.Content>
-                                )
-                            })}
+                                        <S.Buttons>
+                                            <span>Quantidade:</span>
+                                            <span>1</span>
+                                            <span
+                                                onClick={() =>
+                                                    onDelete(fruit[0])
+                                                }
+                                            >
+                                                <FaTrash size={16} />
+                                            </span>
+                                        </S.Buttons>
+                                    </S.Detail>
+                                </S.Content>
+                            )
+                        })}
                     </S.Wrapper>
 
                     <S.Aside>
@@ -110,60 +109,29 @@ export default function Car({
                         </S.Heading>
 
                         {fruitsSelected &&
-                            fruitsSelected.map(
-                                (products: {
-                                    name:
-                                        | string
-                                        | number
-                                        | boolean
-                                        | ReactElement<
-                                              any,
-                                              | string
-                                              | JSXElementConstructor<any>
-                                          >
-                                        | Iterable<ReactNode>
-                                        | ReactPortal
-                                        | PromiseLikeOfReactNode
-                                        | null
-                                        | undefined
-                                    price:
-                                        | string
-                                        | number
-                                        | boolean
-                                        | ReactElement<
-                                              any,
-                                              | string
-                                              | JSXElementConstructor<any>
-                                          >
-                                        | Iterable<ReactNode>
-                                        | ReactPortal
-                                        | PromiseLikeOfReactNode
-                                        | null
-                                        | undefined
-                                }) => {
-                                    return (
-                                        <>
-                                            <S.Items>
-                                                <S.ListProducts>
-                                                    <li>
-                                                        <span>[1x] </span>
-                                                        {products.name}
-                                                    </li>
-                                                </S.ListProducts>
+                            fruitsSelected.map((products: any) => {
+                                return (
+                                    <React.Fragment key={products?.id}>
+                                        <S.Items>
+                                            <S.ListProducts>
+                                                <li>
+                                                    <span>[1x] </span>
+                                                    {products?.name}oi
+                                                </li>
+                                            </S.ListProducts>
 
-                                                <S.ListProducts>
-                                                    <li>
-                                                        <span>
-                                                            <sup>R$</sup>
-                                                            {products.price}
-                                                        </span>
-                                                    </li>
-                                                </S.ListProducts>
-                                            </S.Items>
-                                        </>
-                                    )
-                                }
-                            )}
+                                            <S.ListProducts>
+                                                <li>
+                                                    <span>
+                                                        <sup>R$</sup>
+                                                        {products?.price}
+                                                    </span>
+                                                </li>
+                                            </S.ListProducts>
+                                        </S.Items>
+                                    </React.Fragment>
+                                )
+                            })}
 
                         <S.Finish>
                             <S.Total>
@@ -199,3 +167,5 @@ export default function Car({
         </S.Details>
     )
 }
+
+export default Car

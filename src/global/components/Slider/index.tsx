@@ -49,8 +49,8 @@ export default function SliderComponent() {
                         {Images.map((item, index) => {
                             return (
                                 <S.Img
-                                    src={item.url}
-                                    alt={item.alt}
+                                    src={item?.url}
+                                    alt={item?.alt}
                                     key={index}
                                 />
                             )

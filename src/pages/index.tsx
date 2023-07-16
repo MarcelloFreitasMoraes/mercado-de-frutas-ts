@@ -2,18 +2,18 @@ import Head from 'next/head'
 
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { API } from '../../config/api'
 import Search from '@/global/components/Search'
 import Slider from '@/global/components/Slider'
 import Products from '@/global/components/Products'
+import { API } from '@/config/api'
 
 export default function Home({ isLogged }: { isLogged: boolean }) {
-    const [search, setSearch] = useState()
+    const [search, setSearch] = useState<string>('')
     const [result, setResult] = useState<[string, unknown][]>()
 
     useEffect(() => {
         axios.get(API).then((res) => {
-            const filterProducts = Object.entries(res.data)?.filter((item) => {
+            const filterProducts = Object.entries(res?.data)?.filter((item) => {
                 return item !== null
             })
             setResult(filterProducts)

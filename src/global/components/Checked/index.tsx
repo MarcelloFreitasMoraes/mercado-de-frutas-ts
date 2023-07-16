@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback, RefObject } from 'react'
+import { useRef, useEffect, useCallback } from 'react'
 import { useSpring, animated } from 'react-spring'
 import * as S from './styles'
 import Button from '../Button'
@@ -16,7 +16,7 @@ export default function Checked({ check, setCheck }: CheckedProps) {
     })
 
     const closeCheck = (e: React.MouseEvent<HTMLElement>) => {
-        if (modalRef.current === e.target) {
+        if (modalRef?.current === e.target) {
             setCheck(false)
         }
     }
@@ -50,9 +50,7 @@ export default function Checked({ check, setCheck }: CheckedProps) {
 
                             <Button
                                 label="Ir para o carrinho"
-                                onClick={(e: {
-                                    preventDefault: () => void
-                                }) => {
+                                onClick={(e) => {
                                     e.preventDefault()
                                     goToCar()
                                 }}

@@ -202,3 +202,10 @@ export const Price = styled.span`
         position: relative;
     }
 `
+export const Error = styled.div`
+
+  img {
+    width: auto;
+    height: auto;
+  }
+`

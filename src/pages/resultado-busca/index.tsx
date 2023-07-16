@@ -3,26 +3,25 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
-import { API } from '../../../config/api'
 import Search from '@/global/components/Search'
 import { Container } from '@/styles/Global'
 import Products from '@/global/components/Products'
+import { API } from '@/config/api'
+import { DataProps } from '@/global/@types/data'
 
 export default function Home({ isLogged }: { isLogged: boolean }) {
     const [search, setSearch] = useState<string>('')
-    const [data, setData] = useState<any[]>([])
-    const [result, setResult] = useState<any[]>([])
+    const [data, setData] = useState<DataProps[] | any[]>([])
+    const [result, setResult] = useState([])
 
     const router = useRouter()
     const { fruta } = router.query
 
     useEffect(() => {
         axios.get(API).then((res) => {
-            const filterProducts: any[] = Object.entries(res.data).filter(
-                (n) => {
-                    return n !== null
-                }
-            )
+            const filterProducts = Object?.entries(res.data).filter((n) => {
+                return n !== null
+            })
             setData(filterProducts)
         })
     }, [])

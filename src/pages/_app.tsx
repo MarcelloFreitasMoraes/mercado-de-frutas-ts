@@ -11,7 +11,6 @@ import Footer from '@/global/components/Footer'
 export default function App({ Component, pageProps }: AppProps) {
     const [isLogged, setIsLogged] = useState<string | null>()
     const tema = Theme
-    console.log(isLogged, 'isLog')
 
     useEffect(() => {
         return setIsLogged(localStorage.getItem('Logged'))

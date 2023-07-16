@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <S.Content>
             <Container>
-                <p>Copyright | Marcelo Moraes - 2021</p>
+                <p>Copyright | Marcelo Moraes - 2023</p>
             </Container>
         </S.Content>
     )

@@ -6,19 +6,19 @@ export const Content = styled.button`
     margin: 20px auto;
     font-size: 1em;
     border-radius: 5px;
-    background-color: ${props => props.theme.primary};
+    background-color: ${(props) => props.theme.primary};
     color: white;
     width: 80%;
     padding: 10px 0;
     justify-content: center;
-    transition: all .3s ease-out;
+    transition: all 0.3s ease-out;
 
-    :hover{
-        background-color: ${props => props.theme.hoverPrimary};
+    :hover {
+        background-color: ${(props) => props.theme.hoverPrimary};
     }
 
     :disabled {
-        color: ${props => props.theme.text};
-        background-color: ${props => props.theme.hoverPrimary};
+        color: ${(props) => props.theme.text};
+        background-color: ${(props) => props.theme.hoverPrimary};
     }
 `

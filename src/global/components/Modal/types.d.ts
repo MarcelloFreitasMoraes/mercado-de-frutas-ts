@@ -1,4 +1,4 @@
-export interface ModalProps <T=any> {
+export interface ModalProps<T = any> {
     showModal: boolean
     isLogged: boolean
 }

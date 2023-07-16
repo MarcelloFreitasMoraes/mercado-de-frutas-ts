@@ -19,19 +19,19 @@ export const Box = styled.div`
     width: 100%;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0,0,0, .1);
-    transition: all .3s ease-out;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-out;
 
-    img{       
+    img {
         margin-bottom: 10px;
     }
 
-    p{
+    p {
         margin: 10px 0;
     }
 
-    :hover{
-        transition: all .3s ease-out;
+    :hover {
+        transition: all 0.3s ease-out;
         transform: scale(1.05);
     }
 `
@@ -41,8 +41,7 @@ export const Pricing = styled.div`
     font-size: 2em;
     font-weight: bold;
 
-    sup{
-        font-size: .5em;
+    sup {
+        font-size: 0.5em;
     }
 `
-

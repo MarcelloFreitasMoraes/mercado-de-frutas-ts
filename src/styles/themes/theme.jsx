@@ -5,5 +5,5 @@ export const Theme = {
     hoverSecondary: '#86A614',
     body: '#F2F2F2',
     text: '#262626',
-    textLight: '#F2F2F2'
+    textLight: '#F2F2F2',
 }

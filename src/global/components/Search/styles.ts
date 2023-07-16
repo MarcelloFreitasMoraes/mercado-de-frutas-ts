@@ -18,9 +18,9 @@ export const Form = styled.form`
     align-items: center;
     background-color: white;
     padding: 15px;
-    box-shadow: 2px 2px 8px rgba(0,0,0, .1);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 
-    input{
+    input {
         flex: 1;
         height: 40px;
     }
@@ -28,13 +28,13 @@ export const Form = styled.form`
 
 export const Icon = styled.button`
     background-color: transparent;
-    color: ${props => props.theme.primary};
+    color: ${(props) => props.theme.primary};
     font-size: 1.5em;
     cursor: pointer;
-    transition: all .3s ease-out;
+    transition: all 0.3s ease-out;
 
-    :hover{
-        transition: all .3s ease-out;
-        transform: rotate(45deg)
+    :hover {
+        transition: all 0.3s ease-out;
+        transform: rotate(45deg);
     }
 `

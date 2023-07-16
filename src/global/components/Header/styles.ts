@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Content = styled.header`
-    background-color: ${props => props.theme.primary};
+    background-color: ${(props) => props.theme.primary};
     padding: 1% 0;
     position: relative;
     z-index: 9;
@@ -28,16 +28,16 @@ export const Nav = styled.nav`
         margin: 0 20px;
     }
 
-    a{
+    a {
         color: white;
     }
 
-    a:hover{
-        color: ${props => props.theme.hoverPrimary};
+    a:hover {
+        color: ${(props) => props.theme.hoverPrimary};
     }
 
     @media screen and (max-width: 768px) {
-        li{
+        li {
             margin: 20px;
         }
     }
@@ -49,7 +49,8 @@ export const Icons = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    button,a{
+    button,
+    a {
         cursor: pointer;
         color: white;
         font-size: 2em;

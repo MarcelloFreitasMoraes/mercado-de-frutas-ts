@@ -18,5 +18,5 @@ export const Images = [
     {
         url: './bg5.jpg',
         alt: 'Pêra',
-    }
+    },
 ]

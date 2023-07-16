@@ -24,7 +24,7 @@ export default function Modal({ showModal, isLogged }: ModalProps) {
 
         if (user === loggedUser && password === loggedPassword) {
             localStorage.setItem('Logged', 'isLogged')
-            alert('Seja bem vindo e boas compras!!!')
+            alert(`Seja bem vindo ${nameUser} e boas compras!!!`)
             window.location.href = window.location.href
         } else {
             alert('Usuário não cadastrado')

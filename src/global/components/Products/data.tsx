@@ -5,7 +5,7 @@ export const product_card = [
         description: 'Banana com a melhor qualidade da região',
         price: '10,00',
         currency: 'R$',
-        thumb: './product_01.png'
+        thumb: './product_01.png',
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ export const product_card = [
         description: 'Maça Gala com a melhor qualidade da região',
         price: '1,00',
         currency: 'R$',
-        thumb: './product_02.jpg'
+        thumb: './product_02.jpg',
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ export const product_card = [
         description: 'Abacaxi com a melhor qualidade da região',
         price: '10,00',
         currency: 'R$',
-        thumb: './product_03.jpg'
+        thumb: './product_03.jpg',
     },
     {
         id: 4,
@@ -29,7 +29,7 @@ export const product_card = [
         description: 'Manga com a melhor qualidade da região',
         price: '2,50',
         currency: 'R$',
-        thumb: './product_04.jpg'
+        thumb: './product_04.jpg',
     },
     {
         id: 5,
@@ -37,7 +37,7 @@ export const product_card = [
         description: 'Pêra com a melhor qualidade da região',
         price: '2,00',
         currency: 'R$',
-        thumb: './product_05.jpg'
+        thumb: './product_05.jpg',
     },
     {
         id: 6,
@@ -45,16 +45,15 @@ export const product_card = [
         description: 'Banana Maçã com a melhor qualidade da região',
         price: '10,00',
         currency: 'R$',
-        thumb: './product_06.jpg'
-    }
-    ,
+        thumb: './product_06.jpg',
+    },
     {
         id: 7,
         name: 'Banana Prata',
         description: 'Banana Prata com a melhor qualidade da região',
         price: '10,00',
         currency: 'R$',
-        thumb: './product_07.jpg'
+        thumb: './product_07.jpg',
     },
     {
         id: 8,
@@ -62,7 +61,7 @@ export const product_card = [
         description: 'Banana da Terra com a melhor qualidade da região',
         price: '10,00',
         currency: 'R$',
-        thumb: './product_08.jpg'
+        thumb: './product_08.jpg',
     },
     {
         id: 9,
@@ -70,7 +69,7 @@ export const product_card = [
         description: 'Maçã Fuji com a melhor qualidade da região',
         price: '5,00',
         currency: 'R$',
-        thumb: './product_09.jpg'
+        thumb: './product_09.jpg',
     },
     {
         id: 10,
@@ -78,7 +77,7 @@ export const product_card = [
         description: 'Maçã Fuji com a melhor qualidade da região',
         price: '5,00',
         currency: 'R$',
-        thumb: './product_10.jpg'
+        thumb: './product_10.jpg',
     },
     {
         id: 11,
@@ -86,7 +85,7 @@ export const product_card = [
         description: 'Maçã Verde com a melhor qualidade da região',
         price: '5,00',
         currency: 'R$',
-        thumb: './product_11.jpg'
+        thumb: './product_11.jpg',
     },
     {
         id: 12,
@@ -94,7 +93,7 @@ export const product_card = [
         description: 'Abacaxi Caiano com a melhor qualidade da região',
         price: '10,00',
         currency: 'R$',
-        thumb: './product_12.jpg'
+        thumb: './product_12.jpg',
     },
     {
         id: 13,
@@ -102,7 +101,7 @@ export const product_card = [
         description: 'Abacaxi Pérola com a melhor qualidade da região',
         price: '10,00',
         currency: 'R$',
-        thumb: './product_13.jpg'
+        thumb: './product_13.jpg',
     },
     {
         id: 14,
@@ -110,7 +109,7 @@ export const product_card = [
         description: 'Abacaxi Havai com a melhor qualidade da região',
         price: '10,00',
         currency: 'R$',
-        thumb: './product_14.jpg'
+        thumb: './product_14.jpg',
     },
     {
         id: 15,
@@ -118,7 +117,7 @@ export const product_card = [
         description: 'Pêra Red com a melhor qualidade da região',
         price: '10,00',
         currency: 'R$',
-        thumb: './product_15.jpg'
+        thumb: './product_15.jpg',
     },
     {
         id: 16,
@@ -126,7 +125,7 @@ export const product_card = [
         description: 'Pêra William com a melhor qualidade da região',
         price: '10,00',
         currency: 'R$',
-        thumb: './product_16.jpg'
+        thumb: './product_16.jpg',
     },
     {
         id: 16,
@@ -134,6 +133,6 @@ export const product_card = [
         description: "Pêra  d'Anjou com a melhor qualidade da região",
         price: '10,00',
         currency: 'R$',
-        thumb: './product_17.jpg'
-    }
+        thumb: './product_17.jpg',
+    },
 ]

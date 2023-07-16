@@ -1,18 +1,18 @@
 export const Data = [
     {
         page: 'Home',
-        url: '/'
+        url: '/',
     },
     {
         page: 'Ofertas',
-        url: '#'
+        url: '#',
     },
     {
         page: 'Conheça Nossos Produtos',
-        url: '#'
+        url: '#',
     },
     {
         page: 'Seja Parceiro',
-        url: '#'
+        url: '#',
     },
 ]

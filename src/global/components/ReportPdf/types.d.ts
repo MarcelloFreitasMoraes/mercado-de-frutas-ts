@@ -1,7 +1,7 @@
-import { Total } from './../Car/styles';
-import { DataProps } from "@/global/@types/data";
+import { Total } from './../Car/styles'
+import { DataProps } from '@/global/@types/data'
 
-export interface ReportPdfProps{
-data: DataProps[]
-total: string
+export interface ReportPdfProps {
+    data: DataProps[]
+    total: string
 }

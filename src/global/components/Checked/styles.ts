@@ -5,7 +5,7 @@ import { AiFillCheckCircle } from 'react-icons/ai'
 export const Background = styled.section`
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
@@ -17,9 +17,9 @@ export const Background = styled.section`
 export const Wrapper = styled.div`
     width: 600px;
     height: 250px;
-    box-shadow:  0 5px 16px rgba(0,0,0,.2);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
     background: white;
-    color: ${props => props.theme.text};
+    color: ${(props) => props.theme.text};
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -44,9 +44,9 @@ export const CloseChecked = styled(MdClose)`
     height: 32px;
     padding: 0;
     z-index: 10;
-    transition: all .3s ease-out;
+    transition: all 0.3s ease-out;
 
-    :hover{
+    :hover {
         transform: rotate(360deg);
     }
 `

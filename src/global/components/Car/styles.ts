@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Details = styled.main`
-    padding: 40px 0;
+    padding: 40px 0;  
 `
 
 export const Grid = styled.div`
@@ -16,6 +16,7 @@ export const Grid = styled.div`
 export const Wrapper = styled.div`
     margin-right: 2%;
     width: 100%;
+    
 `
 
 export const Aside = styled.aside`

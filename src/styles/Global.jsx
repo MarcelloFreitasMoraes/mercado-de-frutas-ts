@@ -23,7 +23,7 @@ export default GlobalStyle
 export const Container = styled.div`
     max-width: 1140px;
     width: 100%;
-    padding: 0 2%;
+    padding: 0 5%;
     margin: 0 auto;
 
     @media screen and (max-width: 768px) {

@@ -3,15 +3,7 @@ import styled from 'styled-components'
 export const Content = styled.div`
     margin: 4% auto;
 `
-export const Grid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 0 20px;
-
-    @media screen and (max-width: 768px) {
-        grid-template-columns: 1fr 1fr;
-    }
-`
+export const Grid = styled.div``
 
 export const Box = styled.div`
     margin: 20px 0;

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { Theme } from '@/styles/themes/theme'
 import { ThemeProvider } from 'styled-components'
-import GlobalStyle from '@/styles/Global'
+import GlobalStyle, { Container } from '@/styles/Global'
 import Header from '@/global/components/Header'
 import Footer from '@/global/components/Footer'
 

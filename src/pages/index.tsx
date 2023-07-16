@@ -1,5 +1,4 @@
 import Head from 'next/head'
-
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Search from '@/global/components/Search'

@@ -18,7 +18,7 @@ export const ArrowNext = styled.button`
     top: 50%;
     right: -5%;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 360px) and (max-width: 768px) {
         right: 0;
     }
 `
@@ -31,7 +31,7 @@ export const ArrowPrev = styled.button`
     top: 50%;
     left: -5%;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 360px) and (max-width: 768px) {
         left: 0;
         z-index: 999;
     }

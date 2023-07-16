@@ -22,6 +22,9 @@ export const Brand = styled.div``
 export const Nav = styled.nav`
     ul {
         display: flex;
+        @media screen and (max-width: 768px) {
+            display: block;
+    }
     }
 
     li {

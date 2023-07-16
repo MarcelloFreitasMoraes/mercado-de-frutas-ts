@@ -38,8 +38,7 @@ O projeto foi um desafio proposto com proposito para testar minhas habilidades d
 
 <div align="center">
   <p>Home</p>
-<img src="![image](https://github.com/MarcelloFreitasMoraes/mercado-de-frutas-ts/assets/101751067/080fadb2-22be-45f7-b6cc-5ab9d4550687)
-" width="700px" />
+<img src="https://github.com/MarcelloFreitasMoraes/mercado-de-frutas-ts/assets/101751067/080fadb2-22be-45f7-b6cc-5ab9d4550687" width="700px" />
 </div>
 <br/>
 
@@ -57,8 +56,7 @@ O projeto foi um desafio proposto com proposito para testar minhas habilidades d
 
 <div align="center">
   <p>Carrinho</p>
-<img src="![image](https://github.com/MarcelloFreitasMoraes/mercado-de-frutas-ts/assets/101751067/63f64daf-14db-4bfc-8816-7787bfa9b0b5)
-" width="700px" />
+<img src="https://github.com/MarcelloFreitasMoraes/mercado-de-frutas-ts/assets/101751067/63f64daf-14db-4bfc-8816-7787bfa9b0b5" width="700px" />
 </div>
  <br/>
  

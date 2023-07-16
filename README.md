@@ -1,38 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mercado-Fruta
 
-## Getting Started
+ ## Sign In
+ To login use the email: teste@teste.com.br and password: 123456
 
-First, run the development server:
+##Getting Started
+The project runs on Node, React (with Next.js) and Styled Components.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+##Installing
+Clone the repository:
+git clone https://github.com/MarcelloFreitasMoraes/mercado-de-fruta.git
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##Run yarn install to install node dependencies:
+yarn
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# SOBRE O PROJETO
+O projeto Mercado de Frutas é um projeto Front-End desenvolvido em NEXT.js.
+O projeto foi um desafio proposto com proposito para testar minhas habilidades de desenvolvimento de uma interface funcional.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Tecnologias utilizadas
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<li>NextJS</li>
+<li>ReactJS</li>
+<li>TypesScript</li>
+<li>Axios</li>
+<li>Styled-Components</li>
 
-## Learn More
+# Como executar o projeto
+ ### pré-requisitos: Node 16.16 ou superior
+ 
+ ```bash
+ 
+ #executar o projeto
+ 1 - yarn dev
+ ```
+ ## Fotos do Projeto
 
-To learn more about Next.js, take a look at the following resources:
+<div align="center">
+  <p>Home</p>
+<img src="![image](https://github.com/MarcelloFreitasMoraes/mercado-de-frutas-ts/assets/101751067/080fadb2-22be-45f7-b6cc-5ab9d4550687)
+" width="700px" />
+</div>
+<br/>
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<div align="center">
+  <p>Ofertas</p>
+ <p>Em construção</p>
+</div>
+<br/>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<div align="center">
+  <p>Conheça nossos produtos</p>
+<p>Em construção</p>
+</div>
+<br/>
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<div align="center">
+  <p>Carrinho</p>
+<img src="![image](https://github.com/MarcelloFreitasMoraes/mercado-de-frutas-ts/assets/101751067/63f64daf-14db-4bfc-8816-7787bfa9b0b5)
+" width="700px" />
+</div>
+ <br/>
+ 
+ # autor
+ ### Marcelo Moraes

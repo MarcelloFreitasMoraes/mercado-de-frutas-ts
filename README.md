@@ -17,6 +17,15 @@ yarn
 O projeto Mercado de Frutas é um projeto Front-End desenvolvido em NEXT.js.
 O projeto foi um desafio proposto com proposito para testar minhas habilidades de desenvolvimento de uma interface funcional.
 
+O projeto foi feito com base na API: https://mercado-de-fruta2-default-rtdb.firebaseio.com/frutas/list
+<i>Api Criada por mim.</i>
+
+A aplicação consiste em 2 paginas:
+
+<li>Pagina home</li>
+
+<li>Pagina do carrinho</li>
+
 
 # Tecnologias utilizadas
 
@@ -39,18 +48,6 @@ O projeto foi um desafio proposto com proposito para testar minhas habilidades d
 <div align="center">
   <p>Home</p>
 <img src="https://github.com/MarcelloFreitasMoraes/mercado-de-frutas-ts/assets/101751067/080fadb2-22be-45f7-b6cc-5ab9d4550687" width="700px" />
-</div>
-<br/>
-
-<div align="center">
-  <p>Ofertas</p>
- <p>Em construção</p>
-</div>
-<br/>
-
-<div align="center">
-  <p>Conheça nossos produtos</p>
-<p>Em construção</p>
 </div>
 <br/>
 

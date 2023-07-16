@@ -22,9 +22,7 @@ export const Box = styled.div`
     box-shadow: 5px 5px 15px rgba(0,0,0, .1);
     transition: all .3s ease-out;
 
-    img{
-        width: 200px;
-        height: 200px;
+    img{       
         margin-bottom: 10px;
     }
 

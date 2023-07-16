@@ -26,10 +26,10 @@ export default function Products({ result, isLogged }:ProdutoctsProps) {
         <S.Content>
             <Container>
                 <S.Grid>
-                    {result?.map((item: { name: boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | PromiseLikeOfReactNode | Key | null | undefined; image: string | undefined; description: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; price: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined }) => {
+                    {result?.map((item: { name: any; image: any; description: any; price: any }) => {
                         return (
-                            <S.Box key={item.name}>
-                                <img src={item.image} />
+                            <S.Box key={item.name}>                                
+                                <Image src={item.image} alt={item.image} width={200}height={200}/>
                                 <h2>{item.name}</h2>
                                 <p>{item.description}</p>
 

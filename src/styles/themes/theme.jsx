@@ -6,4 +6,6 @@ export const Theme = {
     body: '#F2F2F2',
     text: '#262626',
     textLight: '#F2F2F2',
+    sucess: '#90EE90',
+    error: '#e47755',
 }

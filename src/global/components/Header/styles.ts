@@ -24,7 +24,7 @@ export const Nav = styled.nav`
         display: flex;
         @media screen and (max-width: 768px) {
             display: block;
-    }
+        }
     }
 
     li {

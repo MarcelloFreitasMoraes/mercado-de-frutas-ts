@@ -1,11 +1,13 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useSpring, animated } from 'react-spring';
 import * as S from './styles';
 import { ModalProps } from './types';
+import Alert from '../Alert';
 
 export default function Modal({ showModal, isLogged }: ModalProps) {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
+  const [alert, setAlert] = useState<{ type: 'success' | 'error', message: string } | null>(null);
 
   const animation = useSpring({
     config: {
@@ -19,21 +21,21 @@ export default function Modal({ showModal, isLogged }: ModalProps) {
   const nameUser = 'Marcelo Moraes';
   const loggedPassword = '123456';
 
-  const SignIn = (e: FormEvent) => {
+  const handleSignIn = (e: FormEvent) => {
     e.preventDefault();
 
     if (user === loggedUser && password === loggedPassword) {
       localStorage.setItem('Logged', 'isLogged');
-      alert(`Seja bem vindo ${nameUser} e boas compras!!!`);
+      setAlert({ type: 'success', message: `Seja bem vindo ${nameUser} e boas compras!!!` });
       window.location.href = window.location.href;
     } else {
-      alert('Usuário não cadastrado');
+      setAlert({ type: 'error', message: 'Usuário não cadastrado' });
     }
   };
 
-  const SignOut = () => {
+  const handleSignOut = () => {
     localStorage.setItem('Logged', '');
-    alert('Usuário desconectado, faça login para realizar as compras!');
+    setAlert({ type: 'success', message: 'Usuário desconectado, faça login para realizar as compras!' });
     window.location.href = window.location.href;
   };
 
@@ -47,7 +49,7 @@ export default function Modal({ showModal, isLogged }: ModalProps) {
                 <S.Logged>
                   <h3>Bem vindo</h3>
                   <span>{nameUser}</span>
-                  <button onClick={SignOut}>Sair</button>
+                  <button onClick={handleSignOut}>Sair</button>
                 </S.Logged>
               ) : (
                 <S.Loggouf>
@@ -58,9 +60,7 @@ export default function Modal({ showModal, isLogged }: ModalProps) {
                       type="email"
                       placeholder="Digite seu email..."
                       value={user}
-                      onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                        setUser(e.target.value)
-                      }
+                      onChange={(e: ChangeEvent<HTMLInputElement>) => setUser(e.target.value)}
                     />
                   </div>
 
@@ -70,18 +70,19 @@ export default function Modal({ showModal, isLogged }: ModalProps) {
                       type="password"
                       placeholder="Digite sua senha..."
                       value={password}
-                      onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                        setPassword(e.target.value)
-                      }
+                      onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                     />
                   </div>
 
-                  <button onClick={SignIn}>Entrar</button>
+                  <button onClick={handleSignIn}>Entrar</button>
                 </S.Loggouf>
               )}
             </S.Heading>
           </S.Login>
         </animated.div>
+      )}
+      {alert && (
+        <Alert type={alert.type} message={alert.message} />
       )}
     </>
   );

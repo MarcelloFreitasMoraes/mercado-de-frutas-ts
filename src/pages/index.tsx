@@ -5,6 +5,7 @@ import Search from '@/global/components/Search'
 import Slider from '@/global/components/Slider'
 import Products from '@/global/components/Products'
 import { API } from '@/config/api'
+import Alert from '@/global/components/Alert'
 
 export default function Home({ isLogged }: { isLogged: boolean }) {
     const [search, setSearch] = useState<string>('')
@@ -15,9 +16,9 @@ export default function Home({ isLogged }: { isLogged: boolean }) {
             const filterProducts = Object.entries(res?.data)?.filter((item) => {
                 if (!item) return false;
                 const [key] = item;
-                const lowerCaseKey = key.toLowerCase();
-                const lowerCaseSearch = search.toLowerCase();
-                return lowerCaseKey.includes(lowerCaseSearch);
+                const lowerCaseKey = key?.toLowerCase();
+                const lowerCaseSearch = search?.toLowerCase();
+                return lowerCaseKey?.includes(lowerCaseSearch);
             });
             setResult(filterProducts)
         })
@@ -29,7 +30,7 @@ export default function Home({ isLogged }: { isLogged: boolean }) {
                 <title>Mercado Fruta | Página Inicial</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
+{/* <Alert type={'success'} message={'Sucesso'}/> */}
             <Search setSearch={setSearch} search={search} />
 
             <Slider />
